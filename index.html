@@ -9,6 +9,61 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+  <div id="particles-js"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS('particles-js',
+  {
+    "particles": {
+      "number": {
+        "value": 50
+      },
+      "color": {
+        "value": ["#6d28d9", "#14b8a6"]
+      },
+      "shape": {
+        "type": "circle"
+      },
+      "opacity": {
+        "value": 0.2,
+        "random": true
+      },
+      "size": {
+        "value": 3,
+        "random": true
+      },
+      "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "none",
+        "out_mode": "bounce"
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.1,
+        "width": 1
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        }
+      }
+    },
+    "retina_detect": true
+  }
+);
+</script>
+
+  <!-- ===== Background Blobs ===== -->
+  <div class="background"></div>
+
   <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">Sooraj</div>
@@ -22,10 +77,15 @@
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav-extra">
-        <a href="Resume - Sooraj.pdf" class="btn-resume" download>Download Resume</a>
-        <a href="https://github.com/Sooraj734056" target="_blank"><img src="images/github.png" alt="GitHub"></a>
-        <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank"><img src="images/social.png" alt="LinkedIn"></a>
+      <div class="nav-right">
+        <a href="Resume - Sooraj.pdf" class="btn-resume" download>Resume</a>
+        <a href="https://github.com/Sooraj734056" target="_blank">
+          <img src="images/github.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank">
+          <img src="images/social.png" alt="LinkedIn">
+        </a>
+        <div class="hamburger">&#9776;</div>
       </div>
     </nav>
   </header>
