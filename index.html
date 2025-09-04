@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sooraj | Portfolio</title>
+
+  <!-- Coding-style font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -12,60 +18,35 @@
   <div id="particles-js"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-particlesJS('particles-js',
-  {
-    "particles": {
-      "number": {
-        "value": 50
+  <script>
+  particlesJS('particles-js',
+    {
+      "particles": {
+        "number": { "value": 50 },
+        "color": { "value": ["#6d28d9", "#14b8a6"] },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.2, "random": true },
+        "size": { "value": 3, "random": true },
+        "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "bounce" },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 }
       },
-      "color": {
-        "value": ["#6d28d9", "#14b8a6"]
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
       },
-      "shape": {
-        "type": "circle"
-      },
-      "opacity": {
-        "value": 0.2,
-        "random": true
-      },
-      "size": {
-        "value": 3,
-        "random": true
-      },
-      "move": {
-        "enable": true,
-        "speed": 1,
-        "direction": "none",
-        "out_mode": "bounce"
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.1,
-        "width": 1
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "grab"
-        }
-      }
-    },
-    "retina_detect": true
-  }
-);
-</script>
+      "retina_detect": true
+    }
+  );
+  </script>
 
   <!-- ===== Background Blobs ===== -->
   <div class="background"></div>
 
 <header>
+  <!-- Logo Left -->
   <div class="logo">Sooraj</div>
+
+  <!-- Navigation Center -->
   <nav>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
@@ -76,21 +57,21 @@ particlesJS('particles-js',
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-
-    <div class="nav-right">
-      <a href="Resume - Sooraj New.pdf" class="btn-resume" download>Resume</a>
-      <a href="https://github.com/Sooraj734056" target="_blank">
-        <img src="images/github.png" alt="GitHub">
-      </a>
-      <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank">
-        <img src="images/download.jpeg" alt="LinkedIn">
-      </a>
-      <div class="hamburger">&#9776;</div>
-    </div>
   </nav>
+
+  <!-- Right Side: Resume + Icons + Hamburger -->
+  <div class="nav-right">
+    <a href="Resume - Sooraj New.pdf" class="btn-resume" download>Resume</a>
+    <a href="https://github.com/Sooraj734056" target="_blank" rel="noopener">
+      <img src="images/github.png" alt="GitHub">
+    </a>
+    <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" rel="noopener">
+      <img src="images/download.jpeg" alt="LinkedIn">
+    </a>
+    <!-- Hamburger Right Side -->
+    <div class="hamburger" aria-label="Toggle menu" role="button">&#9776;</div>
+  </div>
 </header>
-
-
 
 
 
@@ -98,8 +79,9 @@ particlesJS('particles-js',
   <section id="hero" class="hero" data-aos="fade-down">
     <div class="hero-content">
       <h1><span>Sooraj</span></h1>
-      <h2>Full Stack Developer & Creative Designer</h2>
-      <p>Building impactful digital experiences with Full Stack Dev & DevOps skills.</p>
+      <!-- Typing animation target -->
+      <h2><span id="typing" class="typing"></span></h2>
+      <p>Building impactful digital experiences with Full Stack Web Developer skills.</p>
     </div>
     <div class="hero-image">
       <img src="images/suraj.png.jpg" alt="Sooraj">
@@ -108,22 +90,21 @@ particlesJS('particles-js',
 
   <!-- ===== ABOUT ===== -->
   <section id="about" data-aos="fade-up">
-  <h2>About Me</h2>
-  <div class="about-card">
-    <div class="about-icon">
-      <img src="images/person.png" alt="About Icon">
+    <h2>About Me</h2>
+    <div class="about-card">
+      <div class="about-icon">
+        <img src="images/person.png" alt="About Icon">
+      </div>
+      <div class="about-content">
+        <h3>Creative Full Stack Developer</h3>
+        <p>
+          I’m Sooraj — a detail-oriented developer passionate about building simple yet impactful digital experiences.  
+          I love blending Full Stack Dev & DevOps skills to craft modern web apps.  
+          Freelancer, tech blogger and lifelong learner — every project reflects dedication and creativity.
+        </p>
+      </div>
     </div>
-    <div class="about-content">
-      <h3>Creative Full Stack Developer</h3>
-      <p>
-        I’m Sooraj — a detail-oriented developer passionate about building simple yet impactful digital experiences.  
-        I love blending Full Stack Dev & DevOps skills to craft modern web apps.  
-        Freelancer, tech blogger and lifelong learner — every project reflects dedication and creativity.
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- ===== SKILLS ===== -->
   <section id="skills" data-aos="fade-up">
@@ -135,125 +116,102 @@ particlesJS('particles-js',
       <div class="skill-card"><img src="images/react.png" alt=""><p>React</p></div>
       <div class="skill-card"><img src="images/nodes.png" alt=""><p>Node.js</p></div>
       <div class="skill-card"><img src="images/data-management.png" alt=""><p>MongoDB</p></div>
-      <!-- Add more as needed -->
     </div>
   </section>
 
   <!-- ===== EDUCATION ===== -->
   <section id="education" data-aos="fade-up">
-  <h2>Education</h2>
-  <div class="education-container">
-    <div class="edu-card" data-aos="fade-right">
-      <div class="edu-dot"></div>
-      <div class="edu-content">
-        <h3>M.C.A. (Present)</h3>
-        <p>Rajasthan Technical University, Kota</p>
+    <h2>Education</h2>
+    <div class="education-container">
+      <div class="edu-card" data-aos="fade-right">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <h3>M.C.A. (Present)</h3>
+          <p>Rajasthan Technical University, Kota</p>
+        </div>
+      </div>
+      <div class="edu-card" data-aos="fade-right">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <h3>B.C.A. (2021 - 2024)</h3>
+          <p>Jaipur National University, Jaipur — 56.37%</p>
+        </div>
       </div>
     </div>
-    <div class="edu-card" data-aos="fade-right">
-      <div class="edu-dot"></div>
-      <div class="edu-content">
-        <h3>B.C.A. (2021 - 2024)</h3>
-        <p>Jaipur National University, Jaipur — 56.37%</p>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" data-aos="fade-up">
+    <h2>My Projects</h2>
+    <div class="projects-container">
+      <div class="project-card" data-aos="zoom-in-up">
+        <img src="images/portfolio.png" alt="Personal Portfolio">
+        <div class="overlay">
+          <h3>Personal Portfolio Website</h3>
+          <p>Modern responsive portfolio to showcase my skills & projects. Built with HTML, CSS & JavaScript.</p>
+          <a href="https://your-portfolio-link.com" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="zoom-in-up">
+        <img src="images/12.gif" alt="Shoe Shop Website">
+        <div class="overlay">
+          <h3>Shoe Shop Website</h3>
+          <p>Fully responsive shoe shop website with product showcase, cart UI & modern design. Made using HTML, CSS & JS.</p>
+          <a href="https://sooraj734056.github.io/ShoeShop/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="zoom-in-up">
+        <img src="images/Shopping.gif" alt="Clothes Shop Website">
+        <div class="overlay">
+          <h3>Clothes Shop Website</h3>
+          <p>Stylish online clothes shopping website prototype with responsive layout & animations. Built using HTML, CSS & JS.</p>
+          <a href="https://sooraj734056.github.io/Suraj-Clothe/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="zoom-in-up">
+        <img src="images/download (1).gif" alt="Pizza Delivery App">
+        <div class="overlay">
+          <h3>Pizza Delivery Application</h3>
+          <p>Online pizza ordering app prototype with modern UI and basic functionality. Designed with React & CSS.</p>
+          <a href="https://sooraj734056.github.io/PizzaX/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- ===== PROJECTS ===== -->
-<section id="projects" data-aos="fade-up">
-  <h2>My Projects</h2>
-  <div class="projects-container">
-
-    <!-- Portfolio -->
-    <div class="project-card" data-aos="zoom-in-up">
-      <img src="images/portfolio.png" alt="Personal Portfolio">
-      <div class="overlay">
-        <h3>Personal Portfolio Website</h3>
-        <p>Modern responsive portfolio to showcase my skills & projects. Built with HTML, CSS & JavaScript.</p>
-        <a href="https://your-portfolio-link.com" target="_blank" class="btn-live">Live Demo</a>
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications" data-aos="fade-up">
+    <h2>Certifications</h2>
+    <div class="certifications-container">
+      <div class="cert-card">
+        <img src="images/full-stack.png" alt="Certificate">
+        <h3>Full Stack Web Development</h3>
+        <p>MERN Stack — Delta 6.0 [Apna College]</p>
+        <a href="certificates/fullstack-apna.pdf" download class="btn">Download Certificate</a>
+      </div>
+      <div class="cert-card">
+        <img src="images/inrn studio.png" alt="Certificate">
+        <h3>Website Design Internship</h3>
+        <p>Internship Studio</p>
+        <a href="Sooraj Sharma - Website Design and Development Internship - Internship (1).pdf" download class="btn">Download Certificate</a>
+      </div>
+      <div class="cert-card">
+        <img src="images/inernshala.png" alt="Certificate">
+        <h3>Web Development</h3>
+        <p>Internshala</p>
+        <a href="Web Development Training - Certificate of Completion (2).pdf" download class="btn">Download Certificate</a>
+      </div>
+      <div class="cert-card">
+        <img src="images/OIP.webp" alt="Certificate">
+        <h3>Full Stack Web Development</h3>
+        <p>Oasis Infobyte</p>
+        <a href="Sooraj Certificate.pdf" download class="btn">Download Certificate</a>
       </div>
     </div>
-
-    <!-- Shoe Shop -->
-    <div class="project-card" data-aos="zoom-in-up">
-      <img src="images/12.gif" alt="Shoe Shop Website">
-      <div class="overlay">
-        <h3>Shoe Shop Website</h3>
-        <p>Fully responsive shoe shop website with product showcase, cart UI & modern design. Made using HTML, CSS & JS.</p>
-        <a href="https://sooraj734056.github.io/ShoeShop/" target="_blank" class="btn-live">Live Demo</a>
-      </div>
-    </div>
-
-    <!-- Clothes Shop -->
-    <div class="project-card" data-aos="zoom-in-up">
-      <img src="images/Shopping.gif" alt="Clothes Shop Website">
-      <div class="overlay">
-        <h3>Clothes Shop Website</h3>
-        <p>Stylish online clothes shopping website prototype with responsive layout & animations. Built using HTML, CSS & JS.</p>
-        <a href="https://sooraj734056.github.io/Suraj-Clothe/" target="_blank" class="btn-live">Live Demo</a>
-      </div>
-    </div>
-
-    <!-- Pizza App -->
-    <div class="project-card" data-aos="zoom-in-up">
-      <img src="images/download (1).gif" alt="Pizza Delivery App">
-      <div class="overlay">
-        <h3>Pizza Delivery Application</h3>
-        <p>Online pizza ordering app prototype with modern UI and basic functionality. Designed with React & CSS.</p>
-        <a href="https://sooraj734056.github.io/PizzaX/" target="_blank" class="btn-live">Live Demo</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<!-- ===== CERTIFICATIONS ===== -->
-<section id="certifications" data-aos="fade-up">
-  <h2>Certifications</h2>
-  <div class="certifications-container">
-
-    <!-- Certificate 1 -->
-    <div class="cert-card">
-      <img src="images/full-stack.png" alt="Certificate">
-      <h3>Full Stack Web Development</h3>
-      <p>MERN Stack — Delta 6.0 [Apna College]</p>
-      <a href="certificates/fullstack-apna.pdf" download class="btn">Download Certificate</a>
-    </div>
-
-    <!-- Certificate 2 -->
-    <div class="cert-card">
-      <img src="images/inrn studio.png" alt="Certificate">
-      <h3>Website Design Internship</h3>
-      <p>Internship Studio</p>
-      <a href="Sooraj Sharma - Website Design and Development Internship - Internship (1).pdf" download class="btn">Download Certificate</a>
-    </div>
-
-    <!-- Certificate 3 -->
-    <div class="cert-card">
-      <img src="images/inernshala.png" alt="Certificate">
-      <h3>Web Development</h3>
-      <p>Internshala</p>
-      <a href="Web Development Training - Certificate of Completion (2).pdf" download class="btn">Download Certificate</a>
-    </div>
-
-    <!-- Certificate 4 (NEW) -->
-    <div class="cert-card">
-      <img src="images/OIP.webp" alt="Certificate">
-      <h3>Full Stack Web Development</h3>
-      <p>Oasis Infobyte</p>
-      <a href="Sooraj Certificate.pdf" download class="btn">Download Certificate</a>
-    </div>
-
-  </div>
-</section>
-
-
-
+  </section>
 
   <!-- ===== CONTACT ===== -->
   <section id="contact" data-aos="fade-up">
@@ -271,10 +229,10 @@ particlesJS('particles-js',
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="social-icons">
-      <a href="https://github.com/Sooraj734056" target="_blank"><img src="images/github.png" alt="GitHub"></a>
-      <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank"><img src="images/social.png" alt="LinkedIn"></a>
+      <a href="https://github.com/Sooraj734056" target="_blank" rel="noopener"><img src="images/github.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" rel="noopener"><img src="images/social.png" alt="LinkedIn"></a>
     </div>
-    <p>&copy; 2025 Sooraj | Crafted with 💜</p>
+    <p>&copy; 2025 Sooraj | Crafted with 💜Sooraj Sharma</p>
   </footer>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
