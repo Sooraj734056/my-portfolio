@@ -223,6 +223,21 @@ section { padding: 60px 30px; }
   50%{ transform: translateY(-8px); }
   100%{ transform: translateY(0); }
 }
+/* Mobile view ke liye adjust */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;   /* text upar, image niche */
+    text-align: center;
+    gap: 20px;  /* text aur image ke beech spacing */
+    padding: 40px 20px;
+  }
+
+  .hero-image img {
+    width: 200px;  /* thoda chhota image mobile ke liye */
+    margin-top: 10px;
+  }
+}
+
 
 /* ===== About ===== */
 .about-card {
@@ -238,7 +253,9 @@ section { padding: 60px 30px; }
   margin: 30px auto;
 }
 
-.about-icon img { width: 150px; height: 100px; }
+.about-icon img {
+                  justify-content: center;
+                  align-items: center; }
 
 .about-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
 
