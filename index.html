@@ -1,241 +1,325 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sooraj | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Sooraj Sharma | Full Stack Developer">
+  <meta name="description"
+    content="Detail-oriented Full Stack Developer specializing in the MERN stack. Bringing visionary ideas to life.">
 
-  <!-- Coding-style font -->
+  <!-- Open Graph / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sooraj-sharma.vercel.app/">
+  <meta property="og:title" content="Sooraj Sharma | Full Stack Developer">
+  <meta property="og:description"
+    content="Portfolio featuring Premium UI, Modern Architecture, and React/Node applications.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Sooraj734056/my-portfolio/main/images/portt.gif">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
-  <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
-  <div id="particles-js"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-  particlesJS('particles-js',
-    {
-      "particles": {
-        "number": { "value": 50 },
-        "color": { "value": ["#6d28d9", "#14b8a6"] },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.2, "random": true },
-        "size": { "value": 3, "random": true },
-        "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "bounce" },
-        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": { "onhover": { "enable": true, "mode": "grab" } }
-      },
-      "retina_detect": true
-    }
-  );
-  </script>
-
-  <!-- ===== Background Blobs ===== -->
-  <div class="background"></div>
-
-<header>
-  <!-- Logo Left -->
-  <div class="logo">Portfolio</div>
-
-  <!-- Navigation Center -->
-  <nav>
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Right Side: Resume + Icons + Hamburger -->
-  <div class="nav-right">
-    <a href="Resume - Sooraj New.pdf" class="btn-resume" download>Resume</a>
-    <a href="https://github.com/Sooraj734056" target="_blank" rel="noopener">
-      <img src="images/github.png" alt="GitHub">
-    </a>
-    <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" rel="noopener">
-      <img src="images/download.jpeg" alt="LinkedIn">
-    </a>
-    <!-- Hamburger Right Side -->
-    <div class="hamburger" aria-label="Toggle menu" role="button">&#9776;</div>
+  <!-- PERCENTAGE PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-text">Loading System...</div>
+    <div id="loader-percent" class="counter">0%</div>
+    <div class="preloader-line">
+      <div class="preloader-progress"></div>
+    </div>
   </div>
-</header>
 
+  <div class="bg-ambient"></div>
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
 
-
-  <!-- ===== HERO ===== -->
-  <section id="hero" class="hero" data-aos="fade-down">
-    <div class="hero-content">
-      <h1><span>Sooraj Sharma</span></h1>
-      <!-- Typing animation target -->
-      <h2><span id="typing" class="typing"></span></h2>
-      <p>Building impactful digital experiences with Full Stack Web Developer skills.</p>
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast">
+    <span style="font-size: 1.2rem;">✨</span>
+    <div class="toast-content">
+      <strong>Success</strong>
+      <p>Message secured and transmitted!</p>
     </div>
-    <div class="hero-image">
-      <img src="images/suraj.png.jpg" alt="Sooraj">
-    </div>
-  </section>
+  </div>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <div class="about-card">
-      <div class="about-icon">
-        <img src="images/person.png" alt="About Icon">
+  <!-- PROJECT MODAL -->
+  <div id="project-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2 id="modal-title">Project Title</h2>
+        <div id="modal-tags" class="tech-tags" style="justify-content: flex-start;"></div>
       </div>
-      <div class="about-content">
-        <h3>Creative Full Stack Developer</h3>
-        <p>
-          I’m Sooraj — a detail-oriented developer passionate about building simple yet impactful digital experiences.  
-          I love blending Full Stack Dev & DevOps skills to craft modern web apps.  
-          Freelancer, tech blogger and lifelong learner — every project reflects dedication and creativity.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-container">
-      <div class="skill-card"><img src="images/html-5.png" alt=""><p>HTML5</p></div>
-      <div class="skill-card"><img src="images/css-3.png" alt=""><p>CSS3</p></div>
-      <div class="skill-card"><img src="images/js.png" alt=""><p>JavaScript</p></div>
-      <div class="skill-card"><img src="images/react.png" alt=""><p>React</p></div>
-      <div class="skill-card"><img src="images/nodes.png" alt=""><p>Node.js</p></div>
-      <div class="skill-card"><img src="images/data-management.png" alt=""><p>MongoDB</p></div>
-    </div>
-  </section>
-
-  <!-- ===== EDUCATION ===== -->
-  <section id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <div class="education-container">
-      <div class="edu-card" data-aos="fade-right">
-        <div class="edu-dot"></div>
-        <div class="edu-content">
-          <h3>M.C.A. (Present)</h3>
-          <p>Rajasthan Technical University, Kota</p>
+      <div class="modal-body">
+        <div class="modal-slider">
+          <button id="slider-prev">&lt;</button>
+          <img id="modal-image" src="" alt="Project Preview">
+          <button id="slider-next">&gt;</button>
         </div>
-      </div>
-      <div class="edu-card" data-aos="fade-right">
-        <div class="edu-dot"></div>
-        <div class="edu-content">
-          <h3>B.C.A. (2021 - 2024)</h3>
-          <p>Jaipur National University, Jaipur</p>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p id="modal-desc">Project description goes here.</p>
+          <a id="modal-link" href="#" target="_blank" class="btn-submit"
+            style="display:inline-block; text-align:center; text-decoration:none; margin-top:20px; font-size:rem; padding: 15px 30px;">Launch
+            Project</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" data-aos="fade-up">
-    <h2>My Projects</h2>
-    <div class="projects-container">
-      <div class="project-card" data-aos="zoom-in-up">
-        <img src="images/portt.gif" alt="Personal Portfolio">
-        <div class="overlay">
-          <h3>Personal Portfolio Website</h3>
-          <p>Modern responsive portfolio to showcase my skills & projects. Built with HTML, CSS & JavaScript.</p>
-          <a href="https://your-portfolio-link.com" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+  <header>
+    <div class="logo">SOORAJ<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+        <svg id="sun-icon" viewBox="0 0 24 24" fill="none" class="hidden">
+          <path
+            d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5M17.6859 17.69L18.5 18.5M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <svg id="moon-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <a href="Resume - Sooraj New.pdf" class="btn-resume">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-content" data-aos="fade-right">
+        <span class="hero-tag">Available for new opportunities</span>
+        <h1 class="gsap-reveal">Design. <br>Build. <br><span class="gradient-text">Innovate.</span></h1>
+        <p class="gsap-reveal-delay">I'm Sooraj Sharma, a Full Stack Developer transforming complex challenges into
+          elegant, high-performance digital experiences.</p>
+        <div class="hero-btns gsap-reveal-delay">
+          <a href="#projects" class="btn-resume">Explore Work</a>
+          <a href="https://github.com/Sooraj734056" target="_blank" class="social-link">
+            <img src="images/github.png" class="mode-invert icon-size"> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" class="social-link">
+            <img src="images/social.png" class="mode-invert icon-size"> LinkedIn
+          </a>
         </div>
       </div>
+      <div class="hero-image gsap-reveal-img">
+        <img src="images/suraj.png" alt="Sooraj Sharma" class="gsap-parallax" data-speed="-1">
+      </div>
+    </section>
 
-      <div class="project-card" data-aos="zoom-in-up">
-        <img src="images/12.gif" alt="Shoe Shop Website">
-        <div class="overlay">
-          <h3>Shoe Shop Website</h3>
-          <p>Fully responsive shoe shop website with product showcase, cart UI & modern design. Made using HTML, CSS & JS.</p>
-          <a href="https://sooraj734056.github.io/ShoeShop/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+    <!-- ABOUT & SKILLS (Bento Grid) -->
+    <section id="about">
+      <div class="bento-grid">
+        <!-- Bio -->
+        <div class="module bento-about" data-aos="fade-up">
+          <h3>Biography</h3>
+          <p style="font-size: 1.3rem; color: var(--text-muted); max-width: 600px; line-height: 1.8;">
+            Detail-oriented <strong>Full Stack Developer</strong> specializing in the MERN stack. I bridge the gap
+            between stunning aesthetic design and robust backend architecture, bringing visionary ideas to life.
+          </p>
+          <div style="display:flex; gap:50px; margin-top:40px;">
+            <div>
+              <h4 id="github-repos" style="font-size:2.5rem; font-weight:800; color:var(--text);">--</h4>
+              <p style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px;">
+                GITHUB REPOS</p>
+            </div>
+            <div>
+              <h4 style="font-size:2.5rem; font-weight:800; color:var(--text);">MCA</h4>
+              <p style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px;">RTU,
+                KOTA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="module bento-skills" data-aos="fade-up" data-aos-delay="100">
+          <h3>Tech Stack</h3>
+          <div class="skills-grid">
+            <div class="skill-pill"><img src="images/react.png"> React.js</div>
+            <div class="skill-pill"><img src="images/nodes.png"> Node.js</div>
+            <div class="skill-pill"><img src="images/data-management.png"> MongoDB</div>
+            <div class="skill-pill"><img src="images/js.png"> JavaScript</div>
+            <div class="skill-pill"><img src="images/html-5.png"> HTML5</div>
+            <div class="skill-pill"><img src="images/css-3.png"> CSS3</div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="module bento-edu" data-aos="fade-up" data-aos-delay="200">
+          <h3>Academic Journey</h3>
+          <div style="display:flex; gap:80px; flex-wrap:wrap; margin-top: 20px;">
+            <div style="position: relative; padding-left: 20px; border-left: 2px solid var(--primary);">
+              <h4 style="color:var(--primary); font-family:var(--font-mono); margin-bottom:10px; font-size: 0.9rem;">
+                2024 - PRESENT</h4>
+              <p style="font-weight:700; font-size: 1.2rem; color: var(--text);">Masters in Computer Applications</p>
+              <p style="color:var(--text-muted); font-size: 1rem; margin-top: 5px;">Rajasthan Technical University, Kota
+              </p>
+            </div>
+            <div style="position: relative; padding-left: 20px; border-left: 2px solid var(--glass-border);">
+              <h4 style="color:var(--text-muted); font-family:var(--font-mono); margin-bottom:10px; font-size: 0.9rem;">
+                2021 - 2024</h4>
+              <p style="font-weight:700; font-size: 1.2rem; color: var(--text-muted);">Bachelors in Computer
+                Applications</p>
+              <p style="color:rgba(255,255,255,0.4); font-size: 1rem; margin-top: 5px;">Jaipur National University,
+                Jaipur</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="project-card" data-aos="zoom-in-up">
-        <img src="images/Shopping.gif" alt="Clothes Shop Website">
-        <div class="overlay">
-          <h3>Clothes Shop Website</h3>
-          <p>Stylish online clothes shopping website prototype with responsive layout & animations. Built using HTML, CSS & JS.</p>
-          <a href="https://sooraj734056.github.io/Suraj-Clothe/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
-        </div>
+    <!-- WORK -->
+    <section id="projects">
+      <div class="section-title">
+        <h2 data-aos="fade-up">Selected <span class="gradient-text" style="display:inline-block;">Work</span></h2>
       </div>
 
-      <div class="project-card" data-aos="zoom-in-up">
-        <img src="images/download (1).gif" alt="Pizza Delivery App">
-        <div class="overlay">
-          <h3>Pizza Delivery Application</h3>
-          <p>Online pizza ordering app prototype with modern UI and basic functionality. Designed with React & CSS.</p>
-          <a href="https://sooraj734056.github.io/PizzaX/" target="_blank" class="btn-live" rel="noopener">Live Demo</a>
+      <div class="projects-container">
+        <!-- Project Healthcare -->
+        <div class="project-card" data-title="AiCare Healthcare Platform"
+          data-tags="MERN Stack,Node.js,MongoDB,AI Integration"
+          data-images="images/data-management.png,images/suraj.png.jpg"
+          data-desc="An enterprise-grade healthcare appointment booking platform featuring a localized AI voice assistant, real-time doctor directory scheduling, and a robust, secure Node.js & MongoDB backend architecture."
+          data-link="#" data-aos="fade-up">
+          <div class="project-img"><img src="images/data-management.png" alt="Healthcare AI Preview"
+              style="object-fit: contain; background: rgba(0,0,0,0.5); padding: 50px;"></div>
+          <div class="project-body">
+            <div class="tech-tags"><span>MERN</span><span>Node.js</span><span>MongoDB</span></div>
+            <h3>AiCare Medical Platform</h3>
+            <p>Enterprise-grade healthcare appointment booking system with AI voice integration.</p>
+            <span class="project-link">View Case Study <span style="font-size: 1.2rem;">↗</span></span>
+          </div>
         </div>
+
+        <!-- Project 1 -->
+        <div class="project-card" data-title="Premium Portfolio Platform" data-tags="React,Modern UI,Animations"
+          data-images="images/portt.gif,images/react.png"
+          data-desc="A sophisticated digital identity designed to showcase projects with dynamic Neo-Brutalism and Glassmorphism. Features full GSAP integration and intelligent cursor mapping."
+          data-link="#" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-img"><img src="images/portt.gif" alt="Portfolio Preview"></div>
+          <div class="project-body">
+            <div class="tech-tags"><span>React</span><span>Modern UI</span><span>Animations</span></div>
+            <h3>Premium Portfolio Platform</h3>
+            <p>A sophisticated digital identity designed to showcase projects with dynamic Neo-Brutalism and
+              Glassmorphism.</p>
+            <span class="project-link">View Case Study <span style="font-size: 1.2rem;">↗</span></span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-title="AirRun Footwear" data-tags="E-Commerce,JavaScript,DOM"
+          data-images="images/12.gif,images/Shopping.gif"
+          data-desc="An immersive footwear marketplace focused on smooth user journeys, rapid checkout interactions, and stunning 3D product displays."
+          data-link="https://sooraj734056.github.io/ShoeShop/" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-img"><img src="images/12.gif" alt="AirRun Preview"></div>
+          <div class="project-body">
+            <div class="tech-tags"><span>E-Commerce</span><span>JavaScript</span><span>DOM</span></div>
+            <h3>AirRun Footwear</h3>
+            <p>An immersive footwear marketplace focused on smooth user journeys, rapid checkout interactions, and
+              stunning product displays.</p>
+            <span class="project-link">View Case Study <span style="font-size: 1.2rem;">↗</span></span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-title="Urban Vibe Boutique" data-tags="React Native,Firebase,Stripe"
+          data-images="images/Shopping.gif,images/12.gif"
+          data-desc="A complete full-stack fashion store prototype featuring robust state management, user authentication, and a modern engaging retail layout."
+          data-link="https://sooraj734056.github.io/Suraj-Clothe/" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-img"><img src="images/Shopping.gif" alt="Urban Vibe Preview"></div>
+          <div class="project-body">
+            <div class="tech-tags"><span>React Native</span><span>Firebase</span><span>Stripe</span></div>
+            <h3>Urban Vibe Boutique</h3>
+            <p>A complete full-stack fashion store prototype featuring robust state management and a modern retail
+              layout.</p>
+            <span class="project-link">View Case Study <span style="font-size: 1.2rem;">↗</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-section" data-aos="fade-up">
+        <div class="contact-info">
+          <h2>Ready to build the <span class="gradient-text">future?</span></h2>
+          <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.6;">Whether you
+            have a massive idea to build or just want to say hi, my inbox is always open.</p>
+          <div>
+            <p
+              style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px; margin-bottom: 5px;">
+              DROP A LINE</p>
+            <div class="email-copy-container" id="copy-email-btn">
+              <a href="javascript:void(0)"
+                style="color: var(--text); font-weight:700; text-decoration: none;">soorajsharma@example.com</a>
+              <span class="copy-icon">📋</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email Address" required>
+          <textarea id="message" placeholder="Tell me about your amazing project..." rows="5" required></textarea>
+          <button type="submit" id="submitBtn" class="btn-submit">
+            <span class="btn-text">Initialize Transmission</span>
+            <div class="spinner hidden"></div>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button id="terminal-trigger" class="terminal-trigger">&gt;_ Terminal</button>
+
+  <div id="terminal-overlay" class="terminal-overlay">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span>root@sooraj-system:~</span>
+        <button id="close-terminal">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div>Welcome to SoorajOS v1.0.0. Type 'help' to see available commands.</div>
+      </div>
+      <div class="terminal-input-line">
+        <span>guest@sooraj:~$ </span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===== CERTIFICATIONS ===== -->
-  <section id="certifications" data-aos="fade-up">
-    <h2>Certifications</h2>
-    <div class="certifications-container">
-      <div class="cert-card">
-        <img src="images/full-stack.png" alt="Certificate">
-        <h3>Full Stack Web Development</h3>
-        <p>MERN Stack — Delta 6.0 [Apna College]</p>
-        <a href="certificates/fullstack-apna.pdf" download class="btn">Download Certificate</a>
-      </div>
-      <div class="cert-card">
-        <img src="images/inrn studio.png" alt="Certificate">
-        <h3>Website Design Internship</h3>
-        <p>Internship Studio</p>
-        <a href="Sooraj Sharma - Website Design and Development Internship - Internship (1).pdf" download class="btn">Download Certificate</a>
-      </div>
-      <div class="cert-card">
-        <img src="images/inernshala.png" alt="Certificate">
-        <h3>Web Development</h3>
-        <p>Internshala</p>
-        <a href="Web Development Training - Certificate of Completion (2).pdf" download class="btn">Download Certificate</a>
-      </div>
-      <div class="cert-card">
-        <img src="images/OIP.webp" alt="Certificate">
-        <h3>Full Stack Web Development</h3>
-        <p>Oasis Infobyte</p>
-        <a href="Sooraj Certificate.pdf" download class="btn">Download Certificate</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p><img src="images/gmail.png" alt=""> sumitpandit7340@gmail.com</p>
-    <p><img src="images/phone-call.png" alt=""> +91 7340568693</p>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <div class="social-icons">
-      <a href="https://github.com/Sooraj734056" target="_blank" rel="noopener"><img src="images/github.png" alt="GitHub"></a>
-      <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" rel="noopener"><img src="images/social.png" alt="LinkedIn"></a>
-    </div>
-    <p>&copy; 2025 Sooraj | Crafted with 💜Sooraj Sharma</p>
+    <p>&copy; 2024 Sooraj Sharma. Innovating on the web.</p>
   </footer>
 
+  <!-- Libs -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
