@@ -19,6 +19,10 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
+  
+  <!-- PWA Setup -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#050505">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +36,8 @@
 </head>
 
 <body>
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scroll-progress"></div>
   <!-- PERCENTAGE PRELOADER -->
   <div id="preloader">
     <div class="preloader-text">Loading System...</div>
@@ -81,6 +87,20 @@
     </div>
   </div>
 
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 500px; text-align: center;">
+      <button class="modal-close" id="close-resume">&times;</button>
+      <h2 style="margin-bottom: 20px;">Curriculum Vitae</h2>
+      <div style="background: rgba(0,0,0,0.2); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); margin-bottom: 30px;">
+        <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;">Sooraj_Sharma_Resume.pdf</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Size: 240 KB  |  Type: Document</p>
+      </div>
+      <a href="Resume - Sooraj New.pdf" target="_blank" download class="btn-submit magnetic-btn" style="width: 100%; text-decoration: none; display: inline-block; padding: 20px 0;">Initialize Download</a>
+    </div>
+  </div>
+
   <header>
     <div class="logo">SOORAJ<span>.</span></div>
     <nav>
@@ -103,7 +123,7 @@
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
-      <a href="Resume - Sooraj New.pdf" class="btn-resume">Resume</a>
+      <button id="resume-trigger" class="btn-resume magnetic-btn">Resume</button>
     </div>
   </header>
 
@@ -116,7 +136,7 @@
         <p class="gsap-reveal-delay">I'm Sooraj Sharma, a Full Stack Developer transforming complex challenges into
           elegant, high-performance digital experiences.</p>
         <div class="hero-btns gsap-reveal-delay">
-          <a href="#projects" class="btn-resume">Explore Work</a>
+          <a href="#projects" class="btn-resume magnetic-btn">Explore Work</a>
           <a href="https://github.com/Sooraj734056" target="_blank" class="social-link">
             <img src="images/github.png" class="mode-invert icon-size"> GitHub
           </a>
@@ -311,6 +331,12 @@
   </div>
 
   <footer>
+    <div style="margin-bottom: 20px;">
+        <span style="background: rgba(0,240,255,0.1); border: 1px solid var(--border-glow); padding: 8px 15px; border-radius: 50px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); display: inline-flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; background: #ff0055; border-radius: 50%; box-shadow: 0 0 10px #ff0055; animation: pulse-glow 1.5s infinite;"></span> 
+            LIVE VISITS: <strong id="live-visitors" style="color: var(--text);">1,245</strong>
+        </span>
+    </div>
     <p>&copy; 2024 Sooraj Sharma. Innovating on the web.</p>
   </footer>
 

@@ -141,6 +141,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 3.5 RESUME MODAL LOGIC
+    const resumeModal = document.getElementById('resume-modal');
+    const resumeTrigger = document.getElementById('resume-trigger');
+    const closeResume = document.getElementById('close-resume');
+
+    if(resumeTrigger) {
+        resumeTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            resumeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            playSound('bloop');
+        });
+    }
+
+    if(closeResume) {
+        closeResume.addEventListener('click', () => {
+            resumeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    resumeModal.addEventListener('click', (e) => {
+        if(e.target.classList.contains('modal-overlay')) {
+            resumeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
     // 4. CONTACT FORM & TOAST VALIDATION
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
@@ -209,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. GSAP SCROLL & PARALLAX ANIMATIONS
+    // GSAP SCROLL & PARALLAX ANIMATIONS
     gsap.registerPlugin(ScrollTrigger);
 
     function initGSAPAnimations() {
@@ -217,6 +245,20 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(".gsap-reveal", { y: 100, opacity: 0, duration: 1, ease: "power4.out" });
         gsap.from(".gsap-reveal-delay", { y: 50, opacity: 0, duration: 1, ease: "power4.out", stagger: 0.2, delay: 0.3 });
         gsap.from(".gsap-reveal-img", { scale: 0.8, opacity: 0, duration: 1.5, ease: "expo.out", delay: 0.5 });
+        
+        // Hacker Text Decode Effect
+        const headerText = document.querySelector('.hero-content h1 .gradient-text');
+        const originalText = "Innovate.";
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        let iteration = 0;
+        let decodeInterval = setInterval(() => {
+            headerText.innerText = originalText.split("").map((letter, index) => {
+                if(index < iteration) return originalText[index];
+                return letters[Math.floor(Math.random() * 54)];
+            }).join("");
+            if(iteration >= originalText.length) clearInterval(decodeInterval);
+            iteration += 1 / 3;
+        }, 30);
     }
 
     // Parallax effect on elements with data-speed
@@ -266,9 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. HEADER SCROLL STATE
+    // 7. HEADER SCROLL STATE & PROGRESS BAR
     const header = document.querySelector('header');
+    const scrollProgress = document.getElementById('scroll-progress');
+
     window.addEventListener('scroll', () => {
+        // Header
         if (window.scrollY > 50) {
             header.style.padding = '15px 80px';
             header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
@@ -276,6 +321,11 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.padding = '20px 80px';
             header.style.boxShadow = 'none';
         }
+
+        // Progress Bar
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / totalHeight) * 100;
+        scrollProgress.style.width = `${progress}%`;
     });
 
     // 8. INITIALIZE AOS
@@ -380,6 +430,54 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if(val !== 'clear' && val !== '') terminalBody.appendChild(responseLine);
             terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+    });
+
+    // 12. MAGNETIC BUTTONS PHYSICS
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => btn.style.transform = `translate(0px, 0px)`);
+    });
+
+    // 13. PWA SETUP (Service Worker)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js').then(reg => console.log('PWA Registered')).catch(err => console.log('PWA Failed', err));
+        });
+    }
+
+    // 14. LIVE VISITOR COUNTER SIMULATOR (Algorithmically consistent logic)
+    const liveCounterEl = document.getElementById('live-visitors');
+    let baseCount = parseInt(localStorage.getItem('visitorCount')) || 1245;
+    localStorage.setItem('visitorCount', baseCount + 1); // increment personally
+    
+    // Simulate other network hits continuously
+    setInterval(() => {
+        if(Math.random() > 0.75) {
+            baseCount += Math.floor(Math.random() * 2) + 1;
+            liveCounterEl.textContent = baseCount.toLocaleString();
+        }
+    }, 3500);
+
+    // 15. KONAMI CHEAT CODE (UP UP DOWN DOWN LEFT RIGHT b a)
+    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiPos = 0;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiSequence[konamiPos]) {
+            konamiPos++;
+            if (konamiPos === konamiSequence.length) {
+                document.body.classList.toggle('matrix-mode');
+                playSound('success');
+                konamiPos = 0;
+            }
+        } else {
+            konamiPos = 0;
         }
     });
 

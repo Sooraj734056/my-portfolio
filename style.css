@@ -55,7 +55,37 @@ body {
   transition: background 0.5s ease, color 0.5s ease;
 }
 
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--tertiary), var(--secondary));
+  z-index: 9999999;
+  box-shadow: 0 0 10px var(--primary);
+  transition: width 0.1s ease;
+}
+
 .hidden { display: none !important; }
+
+/* KONAMI CODE MATRIX MODE */
+body.matrix-mode {
+  --primary: #0f0;
+  --tertiary: #0f0;
+  --secondary: #0f0;
+  --bg: #000;
+  --bg-secondary: #050505;
+  --text: #0f0;
+  --text-muted: #0a0;
+  --border-glow: rgba(0,255,0,0.5);
+  --glass-border: rgba(0,255,0,0.2);
+  font-family: var(--font-mono);
+}
+body.matrix-mode .bg-ambient { display: none; }
+body.matrix-mode .btn-resume, body.matrix-mode .btn-submit { background: transparent; border: 1px solid #0f0; color: #0f0; box-shadow: 0 0 10px rgba(0,255,0,0.3) inset; }
+body.matrix-mode .hero-image img { filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5); opacity: 0.8; }
+body.matrix-mode .gradient-text { background: #0f0; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* Custom Cursor */
 .cursor {
@@ -543,4 +573,10 @@ footer { padding: 40px; text-align: center; color: var(--text-muted); font-weigh
   .toast { right: 20px; left: 20px; bottom: -120px; justify-content: center; }
   .toast.show { bottom: 20px; }
   .header-right .btn-resume { display: none; } /* Hide resume on small mobile */
+}
+
+/* TOUCH DEVICES CURSOR FIX */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  .cursor, .cursor-follower { display: none !important; opacity: 0 !important; visibility: hidden !important; }
+  * { cursor: auto !important; }
 }
