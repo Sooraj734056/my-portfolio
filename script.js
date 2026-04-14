@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Hacker Text Decode Effect
         const headerText = document.querySelector('.hero-content h1 .gradient-text');
-        const originalText = "Innovate.";
+        const originalText = "Engineer.";
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+~`|}{[]:;?><,./-=";
         let iteration = 0;
         let decodeInterval = setInterval(() => {
