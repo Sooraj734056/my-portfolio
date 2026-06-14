@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Change the below email to the actual user email eventually. Using formsubmit free action.
         
         try {
-            const response = await fetch("https://formsubmit.co/ajax/soorajsharma@example.com", {
+            const response = await fetch("https://formsubmit.co/ajax/suraj734056@gmail.com", {
                 method: "POST",
                 body: formData
             });
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(copyEmailBtn) {
         copyEmailBtn.addEventListener('click', async () => {
             try {
-                await navigator.clipboard.writeText("soorajsharma@example.com");
+                await navigator.clipboard.writeText("suraj734056@gmail.com");
                 playSound('success');
                 toast.querySelector('strong').textContent = "Copied!";
                 toast.querySelector('p').textContent = "Email address copied to clipboard.";
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'help': responseLine.innerHTML = "Available commands: <br>- <b>whoami</b>: About me<br>- <b>projects</b>: List projects<br>- <b>contact</b>: Get email<br>- <b>clear</b>: Clear screen<br>- <b>exit</b>: Close terminal"; break;
                 case 'whoami': responseLine.innerHTML = "Sooraj Sharma. Full Stack Developer. MERN Stack Enthusiast. Building the web."; break;
                 case 'projects': responseLine.innerHTML = "1. Premium Portfolio<br>2. AirRun Footwear<br>3. Urban Vibe<br>Type 'exit' and scroll down to view visually."; break;
-                case 'contact': responseLine.innerHTML = "Email: soorajsharma@example.com <br>GitHub: github.com/Sooraj734056"; break;
+                case 'contact': responseLine.innerHTML = "Email: suraj734056@gmail.com <br>GitHub: github.com/Sooraj734056"; break;
                 case 'clear': terminalBody.innerHTML = ''; break;
                 case 'exit': terminalOverlay.classList.remove('active'); break;
                 case '': break;
@@ -479,6 +479,52 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             konamiPos = 0;
         }
+    });
+
+    // 16. SCROLL TO TOP BUTTON
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    if(scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            playSound('bloop');
+        });
+    }
+
+    // 17. ANIMATED STATS COUNTER
+    function animateCounter(el, target, suffix = '+') {
+        let start = 0;
+        const duration = 1800;
+        const step = (timestamp) => {
+            if(!step.startTime) step.startTime = timestamp;
+            const progress = Math.min((timestamp - step.startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            el.textContent = current + (progress < 1 ? '' : suffix);
+            if(progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.getAttribute('data-target'));
+                if(!isNaN(target) && target > 0) animateCounter(el, target);
+                statsObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+        statsObserver.observe(el);
     });
 
 });

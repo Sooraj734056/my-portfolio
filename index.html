@@ -133,8 +133,8 @@
     <!-- HERO -->
     <section id="hero" class="hero">
       <div class="hero-content" data-aos="fade-right">
-        <span class="hero-tag">Available for software engineering roles</span>
-        <h1 class="gsap-reveal">Architect. <br>Develop. <br><span class="gradient-text">Engineer.</span></h1>
+        <span class="hero-tag"><span class="status-dot"></span>Available for software engineering roles</span>
+        <h1 class="gsap-reveal">Architect. <br>Develop. <br><span class="gradient-text" id="typing-text">Engineer.</span></h1>
         <p class="gsap-reveal-delay">I'm Sooraj Sharma, a dedicated Software Engineer & Full Stack Developer. I
           specialize in building robust backend architectures and deploying highly-optimized, scalable web applications
           that solve real-world problems.</p>
@@ -163,16 +163,18 @@
             Detail-oriented <strong>Full Stack Developer</strong> specializing in the MERN stack. I bridge the gap
             between stunning aesthetic design and robust backend architecture, bringing visionary ideas to life.
           </p>
-          <div style="display:flex; gap:50px; margin-top:40px;">
-            <div>
-              <h4 id="github-repos" style="font-size:2.5rem; font-weight:800; color:var(--text);">--</h4>
-              <p style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px;">
-                GITHUB REPOS</p>
+          <div class="stats-row">
+            <div class="stat-item">
+              <h4 class="stat-num" id="github-repos" data-target="0">--</h4>
+              <p class="stat-label">GITHUB REPOS</p>
             </div>
-            <div>
-              <h4 style="font-size:2.5rem; font-weight:800; color:var(--text);">MCA</h4>
-              <p style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px;">RTU,
-                KOTA</p>
+            <div class="stat-item">
+              <h4 class="stat-num" data-target="3">0+</h4>
+              <p class="stat-label">YEARS EXP</p>
+            </div>
+            <div class="stat-item">
+              <h4 class="stat-num" data-target="10">0+</h4>
+              <p class="stat-label">PROJECTS BUILT</p>
             </div>
           </div>
         </div>
@@ -184,34 +186,37 @@
             <div class="skill-pill"><img src="images/react.png"> React.js</div>
             <div class="skill-pill"><img src="images/js.png">Next.js</div>
             <div class="skill-pill"><img src="images/nodes.png"> Node.js</div>
-            <div class="skill-pill">Express.js</div>
+            <div class="skill-pill"><img src="images/nodes.png">Express.js</div>
             <div class="skill-pill"><img src="images/data-management.png"> MongoDB</div>
-            <div class="skill-pill">MySQL</div>
+            <div class="skill-pill"><img src="images/sql.png">MySQL</div>
             <div class="skill-pill"><img src="images/js.png"> JavaScript</div>
             <div class="skill-pill"><img src="images/html-5.png"> HTML5</div>
             <div class="skill-pill"><img src="images/css-3.png"> CSS3</div>
-            <div class="skill-pill">Bootstrap</div>
+            <div class="skill-pill"><img src="images/bootstrap.png">Bootstrap</div>
           </div>
         </div>
 
         <!-- Education -->
         <div class="module bento-edu" data-aos="fade-up" data-aos-delay="200">
           <h3>Academic Journey</h3>
-          <div style="display:flex; gap:80px; flex-wrap:wrap; margin-top: 20px;">
-            <div style="position: relative; padding-left: 20px; border-left: 2px solid var(--primary);">
-              <h4 style="color:var(--primary); font-family:var(--font-mono); margin-bottom:10px; font-size: 0.9rem;">
-                2024 - PRESENT</h4>
-              <p style="font-weight:700; font-size: 1.2rem; color: var(--text);">Masters in Computer Applications</p>
-              <p style="color:var(--text-muted); font-size: 1rem; margin-top: 5px;">Rajasthan Technical University, Kota
-              </p>
+          <div class="edu-timeline">
+            <div class="edu-item active">
+              <div class="edu-dot"><span></span></div>
+              <div class="edu-content">
+                <span class="edu-year">2024 — PRESENT</span>
+                <h4>Masters in Computer Applications</h4>
+                <p>Rajasthan Technical University, Kota</p>
+                <span class="edu-badge">Pursuing</span>
+              </div>
             </div>
-            <div style="position: relative; padding-left: 20px; border-left: 2px solid var(--glass-border);">
-              <h4 style="color:var(--text-muted); font-family:var(--font-mono); margin-bottom:10px; font-size: 0.9rem;">
-                2021 - 2024</h4>
-              <p style="font-weight:700; font-size: 1.2rem; color: var(--text-muted);">Bachelors in Computer
-                Applications</p>
-              <p style="color:rgba(255,255,255,0.4); font-size: 1rem; margin-top: 5px;">Jaipur National University,
-                Jaipur</p>
+            <div class="edu-item">
+              <div class="edu-dot"><span></span></div>
+              <div class="edu-content">
+                <span class="edu-year">2021 — 2024</span>
+                <h4>Bachelors in Computer Applications</h4>
+                <p>Jaipur National University, Jaipur</p>
+                <span class="edu-badge completed">Completed</span>
+              </div>
             </div>
           </div>
         </div>
@@ -296,14 +301,21 @@
           <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.6;">Whether you
             have a massive idea to build or just want to say hi, my inbox is always open.</p>
           <div>
-            <p
-              style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px; margin-bottom: 5px;">
-              DROP A LINE</p>
+            <p style="color:var(--primary); font-family:var(--font-mono); font-size:0.85rem; letter-spacing:1px; margin-bottom: 5px;">DROP A LINE</p>
             <div class="email-copy-container" id="copy-email-btn">
-              <a href="javascript:void(0)"
-                style="color: var(--text); font-weight:700; text-decoration: none;">soorajsharma@example.com</a>
+              <a href="javascript:void(0)" style="color: var(--text); font-weight:700; text-decoration: none;">suraj734056@gmail.com</a>
               <span class="copy-icon">📋</span>
             </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/Sooraj734056" target="_blank" class="contact-social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank" class="contact-social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
           </div>
         </div>
         <form class="contact-form" id="contactForm">
@@ -337,16 +349,28 @@
     </div>
   </div>
 
+  <!-- SCROLL TO TOP -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
   <footer>
-    <div style="margin-bottom: 20px;">
-      <span
-        style="background: rgba(0,240,255,0.1); border: 1px solid var(--border-glow); padding: 8px 15px; border-radius: 50px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); display: inline-flex; align-items: center; gap: 8px;">
-        <span
-          style="width: 8px; height: 8px; background: #ff0055; border-radius: 50%; box-shadow: 0 0 10px #ff0055; animation: pulse-glow 1.5s infinite;"></span>
-        LIVE VISITS: <strong id="live-visitors" style="color: var(--text);">1,245</strong>
-      </span>
+    <div class="footer-inner">
+      <div class="footer-logo">SOORAJ<span>.</span></div>
+      <p class="footer-tagline">Turning ideas into code, one commit at a time.</p>
+      <div class="footer-links">
+        <a href="https://github.com/Sooraj734056" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/sooraj-563bb1284/" target="_blank">LinkedIn</a>
+        <a href="mailto:suraj734056@gmail.com">Email</a>
+      </div>
+      <div class="footer-bottom">
+        <span class="live-badge">
+          <span class="live-dot"></span>
+          LIVE: <strong id="live-visitors">1,245</strong> visits
+        </span>
+        <p>&copy; 2025 Sooraj Sharma &mdash; Built with ❤️ &amp; Code</p>
+      </div>
     </div>
-    <p>&copy; 2024 Sooraj Sharma. Innovating on the web.</p>
   </footer>
 
   <!-- Libs -->

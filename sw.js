@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sooraj-portfolio-v1';
+const CACHE_NAME = 'sooraj-portfolio-v5';
 const urlsToCache = [
   '/',
   '/index.html',

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx http-server ./ -o"
+    "dev": "npx http-server ./ -c-1 -o"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
