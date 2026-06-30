@@ -351,6 +351,8 @@ section { padding: 80px 8%; max-width: 1500px; margin: 0 auto; overflow: hidden;
 
 .bento-about { grid-column: span 2; grid-row: span 2; }
 .bento-skills { grid-column: span 1; grid-row: span 2; }
+.bento-exp { grid-column: span 2; }
+.bento-certs { grid-column: span 1; }
 .bento-edu { grid-column: span 3; height: auto; min-height: unset; }
 
 .module h3 { font-size: 2.2rem; margin-bottom: 25px; font-weight: 700; display: flex; align-items: center; gap: 15px; }
@@ -654,6 +656,37 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   background: rgba(255,255,255,0.05); color: var(--text-muted);
   border-color: var(--glass-border);
 }
+
+/* WORK EXPERIENCE LIST */
+.exp-list { display: flex; flex-direction: column; gap: 25px; margin-top: 10px; }
+.exp-item { border-left: 2px solid var(--glass-border); padding-left: 25px; transition: var(--transition); }
+.exp-item:hover { border-color: var(--primary); padding-left: 30px; }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
+.exp-company h4 { font-size: 1.3rem; color: var(--text); }
+.exp-role { display: block; font-size: 0.85rem; color: var(--primary); font-family: var(--font-mono); font-weight: 600; margin-top: 2px; }
+.exp-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); padding: 4px 10px; background: rgba(255,255,255,0.03); border-radius: 6px; }
+.exp-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+/* CERTIFICATIONS CARD */
+.cert-link-wrapper { text-decoration: none; color: inherit; display: block; }
+.cert-card { 
+  display: flex; align-items: center; gap: 20px; padding: 25px; 
+  background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); 
+  border-radius: 20px; transition: var(--transition);
+  position: relative;
+}
+.cert-card:hover { transform: scale(1.02); border-color: var(--primary); background: rgba(0, 240, 255, 0.03); }
+.cert-icon { font-size: 2.5rem; filter: drop-shadow(0 0 10px var(--primary)); }
+.cert-info h4 { font-size: 1.1rem; margin-bottom: 4px; }
+.cert-info p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px; }
+.cert-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); font-weight: 600; }
+.cert-download-icon {
+  margin-left: auto; width: 35px; height: 35px; background: rgba(0, 240, 255, 0.1);
+  color: var(--primary); border-radius: 50%; display: flex; align-items: center; 
+  justify-content: center; font-weight: 800; font-size: 1.2rem;
+  transition: var(--transition); border: 1px solid rgba(0, 240, 255, 0.2);
+}
+.cert-card:hover .cert-download-icon { background: var(--primary); color: #fff; transform: translateY(3px); }
 
 /* CONTACT SOCIALS */
 .contact-socials { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }

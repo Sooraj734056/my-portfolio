@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Hacker Text Decode Effect
         const headerText = document.querySelector('.hero-content h1 .gradient-text');
-        const originalText = "Engineer.";
+        const originalText = "Integrating AI.";
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+~`|}{[]:;?><,./-=";
         let iteration = 0;
         let decodeInterval = setInterval(() => {
@@ -419,9 +419,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             switch(val) {
                 case 'help': responseLine.innerHTML = "Available commands: <br>- <b>whoami</b>: About me<br>- <b>projects</b>: List projects<br>- <b>contact</b>: Get email<br>- <b>clear</b>: Clear screen<br>- <b>exit</b>: Close terminal"; break;
-                case 'whoami': responseLine.innerHTML = "Sooraj Sharma. Full Stack Developer. MERN Stack Enthusiast. Building the web."; break;
-                case 'projects': responseLine.innerHTML = "1. Premium Portfolio<br>2. AirRun Footwear<br>3. Urban Vibe<br>Type 'exit' and scroll down to view visually."; break;
-                case 'contact': responseLine.innerHTML = "Email: suraj734056@gmail.com <br>GitHub: github.com/Sooraj734056"; break;
+                case 'whoami': responseLine.innerHTML = "Sooraj Sharma. Full Stack Engineer focused on bridging Web Dev with Generative AI. Currently Project Manager @ Saumic Craft."; break;
+                case 'projects': responseLine.innerHTML = "1. AiCare Platform<br>2. Premium Portfolio<br>3. AirRun Footwear<br>4. Urban Vibe<br>Type 'exit' and scroll down to view case studies."; break;
+                case 'contact': responseLine.innerHTML = "Email: suraj734056@gmail.com <br>LinkedIn: linkedin.com/in/sooraj-sharma-563bb1284"; break;
                 case 'clear': terminalBody.innerHTML = ''; break;
                 case 'exit': terminalOverlay.classList.remove('active'); break;
                 case '': break;
