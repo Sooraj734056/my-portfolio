@@ -346,8 +346,8 @@ section { padding: 80px 8%; max-width: 1500px; margin: 0 auto; overflow: hidden;
 
 .module {
   background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border);
-  border-radius: 40px; padding: 45px; transition: var(--transition); position: relative; overflow: visible;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 40px; padding: 40px; transition: var(--transition); position: relative; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%;
 }
 
 .module:hover {
@@ -663,8 +663,8 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
 }
 
 /* WORK EXPERIENCE LIST */
-.exp-list { display: flex; flex-direction: column; gap: 25px; margin-top: 10px; }
-.exp-item { border-left: 2px solid var(--glass-border); padding-left: 25px; transition: var(--transition); }
+.exp-list { display: flex; flex-direction: column; gap: 20px; margin-top: 10px; width: 100%; }
+.exp-item { border-left: 2px solid var(--glass-border); padding-left: 20px; transition: var(--transition); width: 100%; overflow: hidden; }
 .exp-item:hover { border-color: var(--primary); padding-left: 30px; }
 .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
 .exp-company h4 { font-size: 1.3rem; color: var(--text); }
@@ -752,7 +752,7 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   .hero-image img { max-width: 100%; width: 280px; height: auto; aspect-ratio: 4/5; }
   .logo { font-size: 1.4rem; }
   .module h3 { font-size: 1.8rem; }
-  .module { padding: 30px 20px; }
+  .module { padding: 25px 15px; border-radius: 25px; }
   .skills-grid { grid-template-columns: 1fr; }
   
   .projects-container { grid-template-columns: 1fr; gap: 30px; }
@@ -778,11 +778,17 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   .hero-content h1 { font-size: 2.2rem; }
   .hero-content p { font-size: 1rem; }
   header { padding: 15px 20px; }
-  .section-title h2 { font-size: 2.5rem; }
-  .module h3 { font-size: 1.5rem; }
-  .stat-num { font-size: 2rem; }
-  .stats-row { gap: 20px; }
-  .edu-content h4 { font-size: 1rem; }
+  .section-title h2 { font-size: 2.2rem; }
+  .module h3 { font-size: 1.4rem; }
+  .stat-num { font-size: 1.8rem; }
+  .stats-row { gap: 15px; }
+  .edu-content h4 { font-size: 0.95rem; }
+  .exp-company h4 { font-size: 1.1rem; }
+  .exp-header { flex-direction: column; align-items: flex-start; }
+  .exp-date { align-self: flex-start; margin-top: 5px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-pill { padding: 12px; font-size: 0.85rem; }
+  section { padding: 60px 4%; }
 }
 
 /* TOUCH DEVICES CURSOR FIX */
