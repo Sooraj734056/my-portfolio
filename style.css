@@ -256,6 +256,11 @@ nav a.active::after, nav a:hover::after { width: 100%; }
 }
 .theme-btn:hover { background: var(--bg-card); transform: rotate(15deg) scale(1.1); color: var(--primary); }
 .theme-btn svg { width: 20px; height: 20px; }
+.menu-btn { display: none; flex-direction: column; gap: 5px; background: transparent; border: none; cursor: pointer; z-index: 1001; padding: 10px; }
+.menu-btn span { display: block; width: 25px; height: 2px; background: var(--text); transition: var(--transition); border-radius: 2px; }
+.menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn.active span:nth-child(2) { opacity: 0; }
+.menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
 .btn-resume {
@@ -322,7 +327,7 @@ section { padding: 80px 8%; max-width: 1500px; margin: 0 auto; overflow: hidden;
 .hero-image { flex: 1; display: flex; justify-content: flex-end; position: relative; }
 
 .hero-image img {
-  width: 100%; max-width: 380px; height: 460px; object-fit: cover; border-radius: 40px;
+  width: 100%; max-width: 380px; height: auto; aspect-ratio: 4/5; object-fit: cover; border-radius: 40px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 2; transition: var(--transition);
 }
 
@@ -373,7 +378,7 @@ section { padding: 80px 8%; max-width: 1500px; margin: 0 auto; overflow: hidden;
 .section-title { margin-bottom: 60px; text-align: center; }
 .section-title h2 { font-size: 4rem; letter-spacing: -2px; }
 
-.projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; }
+.projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
 .project-card {
   border-radius: 40px; overflow: hidden; background: var(--bg-card); backdrop-filter: blur(20px);
@@ -718,10 +723,18 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   .hero-btns { justify-content: center; }
   .hero-image { justify-content: center; margin-top: 40px; }
   .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-  .bento-about, .bento-skills, .bento-edu { grid-column: span 1; }
+  .bento-about, .bento-skills, .bento-edu, .bento-exp, .bento-certs { grid-column: span 1; grid-row: span 1; height: auto; }
   .contact-section { grid-template-columns: 1fr; padding: 60px 40px; border-radius: 40px; text-align: center; margin-top: 50px; gap: 40px; }
   header { padding: 20px 40px; }
-  nav ul { display: none; }
+  .menu-btn { display: flex; }
+  #nav-list {
+    position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--bg-secondary);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px;
+    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); backdrop-filter: blur(20px); border-left: 1px solid var(--glass-border);
+    z-index: 1000;
+  }
+  #nav-list.active { right: 0; }
+  #nav-list a { font-size: 1.5rem; }
   #project-modal .modal-header h2 { font-size: 2rem; }
   .contact-socials { justify-content: center; }
   .stats-row { justify-content: center; }
@@ -736,7 +749,7 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   .hero-content p { font-size: 1.1rem; }
   .hero-btns { flex-direction: column; gap: 15px; width: 100%; }
   .hero-btns .btn-resume { width: 100%; text-align: center; }
-  .hero-image img { max-width: 320px; height: 380px; }
+  .hero-image img { max-width: 100%; width: 280px; height: auto; aspect-ratio: 4/5; }
   .logo { font-size: 1.4rem; }
   .module h3 { font-size: 1.8rem; }
   .module { padding: 30px 20px; }
@@ -747,17 +760,29 @@ footer { padding: 0; text-align: center; color: var(--text-muted); font-weight: 
   .project-body { padding: 25px 20px; }
   .project-card h3 { font-size: 1.5rem; }
   
-  .contact-info h2 { font-size: 2.5rem; }
-  .contact-info a { font-size: 1.3rem !important; word-break: break-all; }
+  .contact-info h2 { font-size: 2.2rem; }
+  .contact-info a { font-size: 1.1rem !important; word-break: break-all; }
   .contact-section { padding: 30px 15px; margin: 30px 0; border-radius: 20px; gap: 30px; overflow: hidden; width: 100%; }
   .contact-form { width: 100%; }
-  .contact-form input, .contact-form textarea { padding: 15px 15px; width: 100%; max-width: 100%; font-size: 1rem; }
+  .contact-form input, .contact-form textarea { padding: 15px 15px; width: 100%; max-width: 100%; font-size: 1rem; border-radius: 15px; }
+  .btn-submit { padding: 15px; font-size: 1rem; border-radius: 15px; }
   
   .terminal-window { width: 95%; height: 80vh; max-height: 500px; }
   .toast { right: 20px; left: 20px; bottom: -120px; justify-content: center; }
   .toast.show { bottom: 20px; }
   .header-right .btn-resume { display: none; }
   .scroll-top-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 2.2rem; }
+  .hero-content p { font-size: 1rem; }
+  header { padding: 15px 20px; }
+  .section-title h2 { font-size: 2.5rem; }
+  .module h3 { font-size: 1.5rem; }
+  .stat-num { font-size: 2rem; }
+  .stats-row { gap: 20px; }
+  .edu-content h4 { font-size: 1rem; }
 }
 
 /* TOUCH DEVICES CURSOR FIX */

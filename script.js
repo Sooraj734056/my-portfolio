@@ -527,4 +527,26 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(el);
     });
 
+    // 18. MOBILE MENU TOGGLE
+    const menuToggle = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+    const navLinks = document.querySelectorAll('#nav-list a');
+
+    if(menuToggle && navList) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+            document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : 'auto';
+            playSound('bloop');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navList.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    }
+
 });
